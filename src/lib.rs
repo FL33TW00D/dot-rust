@@ -669,11 +669,18 @@ impl Arrow {
 }
 
 
-impl<const N: usize> From<[ArrowShape; N]> for Arrow {
-    fn from(shape: [ArrowShape; N]) -> Arrow {
-        Arrow {arrows: shape.to_vec() }
+macro_rules! arrowshape_to_arrow {
+    ($n:expr) => {
+        impl From<[ArrowShape; $n]> for Arrow {
+            fn from(shape: [ArrowShape; $n]) -> Arrow {
+                Arrow {arrows: shape.to_vec() }
+            }
+        }
     }
 }
+arrowshape_to_arrow!(2);
+arrowshape_to_arrow!(3);
+arrowshape_to_arrow!(4);
 
 /// Arrow modifier that determines if the shape is empty or filled.
 #[derive(Clone, Copy, Hash, PartialEq, Eq)]
