@@ -260,7 +260,7 @@
 //!
 //! * [DOT language](https://graphviz.org/doc/info/lang.html)
 
-#![crate_name = "dotty"]
+#![crate_name = "dot3"]
 #![crate_type = "rlib"]
 #![crate_type = "dylib"]
 #![doc(
